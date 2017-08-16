@@ -15,17 +15,22 @@ RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
 RUN chmod +x /etc/profile.d/rbenv.sh
 
 ENV RBENV_ROOT /usr/local/rbenv
-
 ENV PATH "$RBENV_ROOT/bin:$RBENV_ROOT/shims:$RBENV_ROOT/plugins/ruby-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 WORKDIR /usr/src/slacker/freetds-1.00.27
 RUN /bin/bash -c "/usr/src/slacker/freetds-1.00.27/configure --prefix=/usr/local --with-tdsver=7.3" 
 RUN make && make install
-RUN rm -rf *
 
 WORKDIR /usr/src/slacker
+RUN rm -rf *
 RUN rbenv install 2.4.1
 RUN rbenv global 2.4.1
 
 RUN gem install tiny_tds -f 
 RUN gem install slacker
+
+RUN apt-get clean autoclean
+RUN apt-get autoremove -y
+RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
+
+CMD /bin/bash -c "tail -f /dev/null"
