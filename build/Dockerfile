@@ -21,6 +21,7 @@ ENV PATH "$RBENV_ROOT/bin:$RBENV_ROOT/shims:$RBENV_ROOT/plugins/ruby-build/bin:/
 WORKDIR /usr/src/slacker/freetds-1.00.27
 RUN /bin/bash -c "/usr/src/slacker/freetds-1.00.27/configure --prefix=/usr/local --with-tdsver=7.3" 
 RUN make && make install
+RUN rm -rf *
 
 WORKDIR /usr/src/slacker
 RUN rbenv install 2.4.1
