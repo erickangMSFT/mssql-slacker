@@ -4,6 +4,8 @@
 
 The easiest way is to bootstrap with a mssql container for SQL Server 2017. After following this guide, you will have a complete setup with a mssql container, a slacker container that runs your db unittests and a docker network where mssql and slacker containers connect. You can use docker compose instead of docker network. 
 
+[mssql-slacker docker hub repository](https://hub.docker.com/r/ericskang/mssql-slacker/)
+
 
 ## Running the sample slacker tests
 Simply run docker-compose up -d by running the following commands after cloning this repository:
