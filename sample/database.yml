@@ -4,7 +4,7 @@
 # Replace the following with your connection information.
 # Note that at this point Slacker only works with SQL Server authentication.
 
-server: localhost
+server: mssql
 database: tempdb # change the database name to your test database
 user: sa
 password: Yukon900
