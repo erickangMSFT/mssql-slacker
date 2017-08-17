@@ -6,7 +6,7 @@ The easiest way is to bootstrap with a mssql container for SQL Server 2017. Afte
 
 [mssql-slacker demo image docker hub repository](https://hub.docker.com/r/ericskang/mssql-slacker/)
 
-## Running the sample slacker tests
+## Running sample slacker tests
 Simply run docker-compose up -d by running the following commands after cloning this repository:
 
 ```bash
